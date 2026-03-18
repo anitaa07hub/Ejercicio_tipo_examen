@@ -1,23 +1,22 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Circulo c = new Circulo(2, "Circulo 1");
-        Rectangulo cc = new Rectangulo(3,4,"Cuadrado 1");
-        Triangulo t = new Triangulo(1, 2,3,"Triángulo 1");
+        Figura c = new Circulo(2, "Circulo 1");
+        Figura r = new Rectangulo(3,4,"Cuadrado 1");
+        Figura t = new Triangulo(1, 2,3,"Triángulo 1");
 
-        System.out.println(c.calcularPerimetro());
-        System.out.println(c.calcularArea());
-        c.dibujar();
-        c.mostrarCirculo();
 
-        System.out.println(cc.calcularPerimetro());
-        System.out.println(cc.calcularArea());
-        cc.dibujar();
-        cc.mostrarCuadrado();
+        ArrayList<Figura> figuras = new ArrayList<Figura>();
+        figuras.add(c);
+        figuras.add(r);
+        figuras.add(t);
 
-        System.out.println(t.calcularPerimetro());
-        System.out.println(t.calcularArea());
-        t.dibujar();
-        t.mostrarTriangulo();
-
+        for (Figura figura : figuras) {
+            System.out.println(figura.calcularPerimetro());
+            System.out.println(figura.calcularArea());
+            figura.mostrar();
+            ((Dibujable)figura).dibujar();
+        }
     }
 }
